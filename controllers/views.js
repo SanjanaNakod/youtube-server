@@ -9,10 +9,11 @@ export const viewController = async (req, res) => {
   }
   try {
     const file = await videoFiles.findById(_id);
-    const views = file.Views;
+    const view = file.Views;
     const updateview = await videoFiles.findByIdAndUpdate(_id, {
-      $set: { Views: views + 1 },
+      $set: { Views: view + 1 },
     });
+    // console.log(views)
     res.status(200).json(updateview);
   } catch (error) {
     res.status(400).json("error : ", error);

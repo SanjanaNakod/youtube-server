@@ -14,7 +14,7 @@ const routes=express.Router();
 routes.post("/uploadVideo",auth,upload.single('file'),uploadVideo)
 routes.get("/getvideos",getAllvideos)
 routes.patch("/like/:id",auth,likeController)
-routes.patch("/views/:id",viewController)
+routes.patch("/view/:id",viewController)
 
 routes.post("/likedVideo",auth,likeVideoController)
 routes.get("/getAlllikedVideo",getAlllikedVideoController)

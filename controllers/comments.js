@@ -28,20 +28,20 @@ export const getComment=async(req,res)=>{
 
 }
 
-export const deleteComment=async(req,res)=>{
-    const {id:_id}= req.params;
+export const deleteComment = async (req, res) => {
+    const { id: _id } = req.params;
+  
     if (!mongoose.Types.ObjectId.isValid(_id)) {
-        return res.status(404).send("comment Unavailable..");
-      }
-    try {
-        await comment.findByIdAndRemove({_id});
-        res.status(200).json({message:"deleted comment"})
-    } catch (error) {
-        console.log(error)
-        res.status(400).json({message:error.message})
-        
+      return res.status(404).send("comment Unavailable..");
     }
-}
+  
+    try {
+      await comment.findByIdAndDelete(_id);
+      res.status(200).json({ message: "deleted comment" });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  };
 export const  editComment=async(req,res)=>{
     const {id:_id}=req.params;
     const {commentBody}=req.body;

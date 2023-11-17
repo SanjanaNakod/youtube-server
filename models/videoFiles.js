@@ -29,7 +29,7 @@ Like:{
     type: Number,
     default:0
 },
-Views:{
+Views: {
     type: Number,
     default:0,
 },
